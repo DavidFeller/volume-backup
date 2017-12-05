@@ -1,5 +1,7 @@
 #!/bin/sh
 
+DATE=$(date "+%Y-%m-%d");
+
 usage() {
   echo "Usage: volume-backup <backup|restore> <archive>"
   exit
@@ -31,7 +33,7 @@ fi
 
 OPERATION=$1
 
-ARCHIVE=${2%%.tar.bz2}.tar.bz2
+ARCHIVE=${2%%.tar.bz2}-$DATE.tar.bz2
 
 case "$OPERATION" in
 "backup" )
